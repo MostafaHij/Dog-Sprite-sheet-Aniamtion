@@ -97,18 +97,22 @@ dropDown.addEventListener('change', (e) => {
 
 // Chaning some dog states by keys
 document.addEventListener('keydown', e => {
-    switch (e.code) {
+  switch (e.code) {
         case 'ArrowRight':
             playerState = 'run';
             break;
         case 'ArrowUp':
             playerState = 'jump';
             break;
+        case 'ArrowDown':
+            playerState = 'sit';
+            break;
         case 'Space':
             playerState = 'roll';
             break;
 
         default:
+            playerState = 'idle';
             break;
     }
 });
