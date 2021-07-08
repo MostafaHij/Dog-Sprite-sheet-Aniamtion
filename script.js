@@ -95,6 +95,37 @@ dropDown.addEventListener('change', (e) => {
     playerState = e.target.value;
 });
 
+// Chaning some dog states by keys
+document.addEventListener('keydown', e => {
+    switch (e.code) {
+        case 'ArrowRight':
+            playerState = 'run';
+            break;
+        case 'ArrowUp':
+            playerState = 'jump';
+            break;
+        case 'Space':
+            playerState = 'roll';
+            break;
+
+        default:
+            break;
+    }
+});
+
+// reset 'idle' state to dog when key is up
+document.addEventListener('keyup', e => {
+
+    if (playerState == 'jump') {
+        playerState = 'fall';
+        setTimeout(() => {
+            playerState = 'idle';
+        }, 200);
+    } else {
+        playerState = 'idle';
+    }
+});
+
 
 // animation loop
 function animate() {
